@@ -162,27 +162,26 @@ ex)
 
 * requirement: pandas, numpy, torch, seaborn, matplotlib
 
-1. 수행 기관:  부트캠프 (역할: Method 튜닝, 전처리, 팀장, 트러블 슈팅)
+* 프로젝트 수행은 2023년 1월부터 2월부터 알파코 딥러닝 부트캠프에서 진행했다. 웹과 딥러닝 두 부분을 진행했으며, 웹 부분은 플라스크를 사용했다, 딥러닝은 CNN을 사용하였으며, 데이터는 0~9의 숫자 이미지로 이루어진 MNIST train 6만장 test 3만장으로 사용하였다. 결과 이미지는 output.jpg처럼 나왔고, 전체 설계도는 architecture.jpg로 만들었다. 참고는 Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems 25 (2012). 을 하였고, 느낌점은, CNN으로는 0~9 이미지의 학습 성능이 잘 나왔지만 transform을 어떻게 주냐에 따라서 성능을 감소시키는 기법들이 뭐인지 리포트하고 싶었다.
+
+1. 수행 기관:  알파코 딥러닝 부트캠프 (역할: Method 튜닝, 전처리, 팀장, 트러블 슈팅)
 
 2. 데이터: 환자 데이터 10000개, 정상인 데이터 20만개
 
 3. Method:  전처리: 이미지 Normalize + MixUp(Augmentation) + Denosing               
-            모델: F-AnoGAN (Medical Image Analysis, 2019.05)
+            모델: CNN (Medical Image Analysis, 2019.05)
 	         optimizer: Adam 
             loss: L1 loss
-	<img src="https://user-images.githubusercontent.com/85111065/173891979-c4353c43-345f-4cec-8a4f-d818e00d97f5.png" width="500">
+	![architecture](https://github.com/user-attachments/assets/7e70da73-5582-4112-8cd7-1764f659f608)
+
 
 4. 결과: <br>
 
-* Anomaly detection: <br>
-	<img src="https://user-images.githubusercontent.com/85111065/173892034-27a00459-f7af-4ed7-877c-45baa59f2a10.png" width="500" >
+* confusion Matrix : ![output](https://github.com/user-attachments/assets/cf0f05d4-4e34-45f5-bd0f-4f6ea74fbc8e)
 
-* Acc: <br>
-	<img src="https://user-images.githubusercontent.com/85111065/173892050-d0406ab4-e31b-43c1-bfa7-cd121428e1aa.png" width="500" >
 
-* 프로젝트 수행 중 문제: 정상인 데이터에서도 미세한 Anomaly가 검출되어서, 환자로 분류하는 threshold를
-    높혀줌으로써 정확히 분류될 수 있도록 조치하였으며, 데이터가 부족하여 오픈데이터를 다수 활용.
+* 프로젝트 수행 중 문제: CNN으로는 0~9 이미지의 학습 성능이 잘 나왔지만 transform을 어떻게 주냐에 따라서 성능을 감소시키는 기법들이 있어서
+  해당 기법들에 대한 고찰이 필요하였다.
 
-5. 참고: Schlegl, Thomas, et al. "f-AnoGAN: Fast unsupervised anomaly detection with generative 
-    adversarial networks." Medical image analysis 54 (2019): 30-44.
+5. 참고: Krizhevsky, Alex, Ilya Sutskever, and Geoffrey E. Hinton. "Imagenet classification with deep convolutional neural networks." Advances in neural information processing systems 25 (2012).
 
